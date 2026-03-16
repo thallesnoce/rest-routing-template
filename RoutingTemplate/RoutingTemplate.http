@@ -1,0 +1,6 @@
+@RoutingTemplate_HostAddress = http://localhost:5213
+
+GET {{RoutingTemplate_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
