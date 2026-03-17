@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseInMemoryDatabase("RoutingDb"));
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -16,6 +18,8 @@ using (var scope = app.Services.CreateScope())
     db.Database.EnsureCreated();
 }
 
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();
