@@ -6,8 +6,10 @@ namespace RoutingTemplate.Controllers;
 
 [ApiController]
 [Route("api/v1/chefes")]
-public class ChefesController(AppDbContext db) : ControllerBase
+public class ChefesController : ControllerBase
 {
+    private readonly AppDbContext db;
+    public ChefesController(AppDbContext db) { this.db = db; }
     // Etapa 1 — GET /api/v1/chefes
     [HttpGet]
     public async Task<IActionResult> GetAll()
